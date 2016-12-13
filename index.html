@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Modal</title>
+    <link href="dist/modal.css" rel="stylesheet">
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      #box {
+        background-color: #000;
+        color: #fff;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" data-toggle="modal" data-target="#box">Toggle Modal</button>
+    <div class="container">
+      <div id="box" class="modal">
+        <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sed diam eget risus varius blandit sit amet non magna. Sed posuere consectetur est at lobortis.</p>
+      </div>
+    </div>
+    <script src="dist/modal.js"></script>
+  </body>
+</html>
