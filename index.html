@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Center box</title>
+    <style>
+      .container1 {
+        background-color: #0a4650;
+        height: 500px;
+        margin-bottom: 10px;
+        width: 500px;
+
+        text-align: center;
+        overflow: auto;
+      }
+
+      .container1::after {
+        content: '';
+        height: 100%;
+        margin-left: -.25em;
+      }
+
+      .container1::after,
+      .box1 {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .box1 {
+        background-color: #f9f5ce;
+
+        max-width: 98%;
+        max-width: calc(100% - .25em);
+      }
+
+      .container2 {
+        background-color: #0a4650;
+        height: 500px;
+        margin-bottom: 10px;
+        width: 500px;
+
+        overflow: auto;
+        position: relative;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+      }
+
+      .box2 {
+        background-color: #f9f5ce;
+
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+
+      .container3 {
+        background-color: #0a4650;
+        height: 500px;
+        width: 500px;
+        margin-bottom: 10px;
+
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        overflow: auto;
+      }
+
+      .box3 {
+        background-color: #f9f5ce;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container1">
+      <div class="box1">
+        兼容性最好。<br>
+        缺点是需要根据字体大小设置 .container::after 的 margin-left，<br>
+        而且 .box 的最大宽度不超过 .container 宽度减去 margin-left 值。
+      </div>
+    </div>
+
+    <div class="container2">
+      <div class="box2">
+        适用于现代浏览器。<br>
+        缺点是 IE 需要 9 以下不支持。
+      </div>
+    </div>
+
+    <div class="container3">
+      <div class="box3">
+        适用于现代浏览器。<br>
+        缺点是 IE 需要 11 以下不支持。
+      </div>
+    </div>
+  </body>
+</html>
