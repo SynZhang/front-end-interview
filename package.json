@@ -1,0 +1,19 @@
+{
+  "name": "front-end-interview",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build:sass": "sass src/modal.scss dist/modal.css",
+    "build:coffee": "coffee --compile --output dist/ src/",
+    "build": "npm run build:sass && npm run build:coffee"
+  },
+  "repository": {
+    "url": "git@github.com:SynZhang/front-end-interview.git",
+    "type": "git"
+  },
+  "author": "Syn Zhang <zeyanzhang.china@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "coffee-script": "^1.12.1"
+  }
+}

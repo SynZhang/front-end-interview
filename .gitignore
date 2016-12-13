@@ -1,0 +1,6 @@
+.DS_Store
+.DS_Store?
+.Trashes
+Thumbs.db
+.sass-cache/
+node_modules/
