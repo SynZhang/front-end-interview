@@ -1,0 +1,33 @@
+.container {
+  height: 100%;
+  text-align: center;
+  overflow: auto;
+  width: 100%;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    margin-left: -.25em;
+    vertical-align: middle;
+  }
+}
+
+.modal {
+  display: none;
+  max-width: 98%;
+  max-width: calc(100% - .25em);
+  opacity: 0;
+  transition: opacity 1s, transform 1s;
+  transform: translateY(100%);
+  vertical-align: middle;
+
+  &.is-shown {
+    display: inline-block;
+  }
+
+  &.is-fading {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
