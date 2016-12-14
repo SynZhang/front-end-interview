@@ -50,7 +50,7 @@ Modal =
     @
 
 
-createModal = () ->
+window.createModal = () ->
   Object.create(Modal)
 
 
