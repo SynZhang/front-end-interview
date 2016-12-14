@@ -14,10 +14,43 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update_attributes(post_params)
-      redirect_to post_path(@post)
+    case params[:event]
+    when 'archive'
+      if @post.archive
+        response_to do |format|
+          format.json { head :no_content }
+        end
+      else
+        response_to do |format|
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
+      end
+    when 'vote'
+      if current_user.vote(@post)
+        response_to do |format|
+          format.json { head :no_content }
+        end
+      else
+        response_to do |format|
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
+      end
+    when 'share'
+      if current_user.share(@post)
+        response_to do |format|
+          format.json { head :no_content }
+        end
+      else
+        response_to do |format|
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
+      end
     else
-      render 'edit'
+      if @post.update_attributes(post_params)
+        redirect_to post_path(@post)
+      else
+        render 'edit'
+      end
     end
   end
 
